@@ -4,14 +4,14 @@ metadata:
   name: spring-petclinic-db
   annotations:
     kapp.k14s.io/identity: v1;spring-petclinic/carto.run/Workload/spring-petclinic;carto.run/v1alpha1
-    kapp.k14s.io/original: '{"apiVersion":"carto.run/v1alpha1","kind":"Workload","metadata":{"labels":{"app.kubernetes.io/part-of":"spring-petclinic","apps.tanzu.vmware.com/has-tests":"true","apps.tanzu.vmware.com/workload-type":"web","kapp.k14s.io/app":"1663010917702278916","kapp.k14s.io/association":"v1.cfc853b7b4add10a8d0d86939613c50b"},"name":"spring-petclinic","namespace":"spring-petclinic"},"spec":{"build":{"env":[{"name":"BP_GRADLE_BUILD_FILE","value":"/foo"}]},"env":[{"name":"SPRING_PROFILES_ACTIVE","value":"postgres"}],"params":[{"name":"annotations","value":{"autoscaling.knative.dev/minScale":"1"}},{"name":"gitops_repository_name","value":"trp-gitops-spring-petclinic"}],"serviceClaims":[{"name":"db","ref":{"apiVersion":"services.apps.tanzu.vmware.com/v1alpha1","kind":"ResourceClaim","name":"petclinic-db"}}],"source":{"git":{"ref":{"branch":"main"},"url":"https://github.com/spring-projects/spring-petclinic.git"}}}}'
+    kapp.k14s.io/original: '{"apiVersion":"carto.run/v1alpha1","kind":"Workload","metadata":{"labels":{"app.kubernetes.io/part-of":"spring-petclinic","apps.tanzu.vmware.com/has-tests":"true","apps.tanzu.vmware.com/workload-type":"web","kapp.k14s.io/app":"1663083353802510099","kapp.k14s.io/association":"v1.cfc853b7b4add10a8d0d86939613c50b"},"name":"spring-petclinic","namespace":"spring-petclinic"},"spec":{"build":{"env":[{"name":"BP_GRADLE_BUILD_FILE","value":"/foo"}]},"env":[{"name":"SPRING_PROFILES_ACTIVE","value":"postgres"}],"params":[{"name":"annotations","value":{"autoscaling.knative.dev/minScale":"1"}},{"name":"gitops_repository_name","value":"trp-gitops-spring-petclinic"}],"serviceClaims":[{"name":"db","ref":{"apiVersion":"services.apps.tanzu.vmware.com/v1alpha1","kind":"ResourceClaim","name":"petclinic-db"}}],"source":{"git":{"ref":{"branch":"main"},"url":"https://github.com/spring-projects/spring-petclinic.git"}}}}'
     kapp.k14s.io/original-diff-md5: c6e94dc94aed3401b5d0f26ed6c0bff3
     autoscaling.knative.dev/minScale: "1"
   labels:
     app.kubernetes.io/part-of: spring-petclinic
     apps.tanzu.vmware.com/has-tests: "true"
     apps.tanzu.vmware.com/workload-type: web
-    kapp.k14s.io/app: "1663010917702278916"
+    kapp.k14s.io/app: "1663083353802510099"
     kapp.k14s.io/association: v1.cfc853b7b4add10a8d0d86939613c50b
     app.kubernetes.io/component: run
     carto.run/workload-name: spring-petclinic
