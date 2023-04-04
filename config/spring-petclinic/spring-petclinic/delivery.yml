@@ -5,11 +5,12 @@ metadata:
   annotations:
     ootb.apps.tanzu.vmware.com/servicebinding-workload: "true"
     ootb.apps.tanzu.vmware.com/apidescriptor-ref: "true"
+    kapp.k14s.io/change-rule: upsert after upserting servicebinding.io/ServiceBindings
   labels:
     app.kubernetes.io/part-of: spring-petclinic
     apps.tanzu.vmware.com/has-tests: "true"
     apps.tanzu.vmware.com/workload-type: web
-    kapp.k14s.io/app: "1672857995445286987"
+    kapp.k14s.io/app: "1679864904293570532"
     kapp.k14s.io/association: v1.cfc853b7b4add10a8d0d86939613c50b
     app.kubernetes.io/component: run
     carto.run/workload-name: spring-petclinic
@@ -18,8 +19,9 @@ spec:
     metadata:
       annotations:
         autoscaling.knative.dev/minScale: "1"
-        boot.spring.io/version: 3.0.1
+        boot.spring.io/version: 3.0.4
         conventions.carto.run/applied-conventions: |-
+          appliveview-sample/app-live-view-appflavour-check
           spring-boot-convention/auto-configure-actuators-check
           spring-boot-convention/spring-boot
           spring-boot-convention/spring-boot-graceful-shutdown
@@ -30,12 +32,11 @@ spec:
           spring-boot-convention/app-live-view-connector-boot
           spring-boot-convention/app-live-view-appflavours-boot
           spring-boot-convention/service-intent-postgres
-          appliveview-sample/app-live-view-appflavour-check
         developer.conventions/target-containers: workload
         kapp.k14s.io/identity: v1;spring-petclinic/carto.run/Workload/spring-petclinic;carto.run/v1alpha1
-        kapp.k14s.io/original: '{"apiVersion":"carto.run/v1alpha1","kind":"Workload","metadata":{"labels":{"app.kubernetes.io/part-of":"spring-petclinic","apps.tanzu.vmware.com/has-tests":"true","apps.tanzu.vmware.com/workload-type":"web","kapp.k14s.io/app":"1672857995445286987","kapp.k14s.io/association":"v1.cfc853b7b4add10a8d0d86939613c50b"},"name":"spring-petclinic","namespace":"spring-petclinic"},"spec":{"build":{"env":[{"name":"BP_GRADLE_BUILD_FILE","value":"/foo"},{"name":"BP_JVM_VERSION","value":"17"}]},"env":[{"name":"SPRING_PROFILES_ACTIVE","value":"postgres"}],"params":[{"name":"annotations","value":{"autoscaling.knative.dev/minScale":"1"}},{"name":"gitops_repository_name","value":"trp-gitops-spring-petclinic"}],"serviceClaims":[{"name":"db","ref":{"apiVersion":"services.apps.tanzu.vmware.com/v1alpha1","kind":"ResourceClaim","name":"petclinic-db"}}],"source":{"git":{"ref":{"branch":"main"},"url":"https://github.com/spring-projects/spring-petclinic.git"}}}}'
+        kapp.k14s.io/original: '{"apiVersion":"carto.run/v1alpha1","kind":"Workload","metadata":{"labels":{"app.kubernetes.io/part-of":"spring-petclinic","apps.tanzu.vmware.com/has-tests":"true","apps.tanzu.vmware.com/workload-type":"web","kapp.k14s.io/app":"1679864904293570532","kapp.k14s.io/association":"v1.cfc853b7b4add10a8d0d86939613c50b"},"name":"spring-petclinic","namespace":"spring-petclinic"},"spec":{"build":{"env":[{"name":"BP_GRADLE_BUILD_FILE","value":"/foo"},{"name":"BP_JVM_VERSION","value":"17"}]},"env":[{"name":"SPRING_PROFILES_ACTIVE","value":"postgres"}],"params":[{"name":"annotations","value":{"autoscaling.knative.dev/minScale":"1"}},{"name":"gitops_repository_name","value":"trp-gitops-spring-petclinic"},{"name":"scanning_source_policy","value":"lax-scan-policy"},{"name":"scanning_image_policy","value":"lax-scan-policy"}],"serviceClaims":[{"name":"db","ref":{"apiVersion":"services.apps.tanzu.vmware.com/v1alpha1","kind":"ResourceClaim","name":"petclinic-db"}}],"source":{"git":{"ref":{"branch":"main"},"url":"https://github.com/spring-projects/spring-petclinic.git"}}}}'
         kapp.k14s.io/original-diff-md5: c6e94dc94aed3401b5d0f26ed6c0bff3
-        services.conventions.carto.run/postgres: postgresql/42.5.1
+        services.conventions.carto.run/postgres: postgresql/42.5.4
       labels:
         app.kubernetes.io/component: run
         app.kubernetes.io/part-of: spring-petclinic
@@ -44,7 +45,7 @@ spec:
         apps.tanzu.vmware.com/workload-type: web
         carto.run/workload-name: spring-petclinic
         conventions.carto.run/framework: spring-boot
-        kapp.k14s.io/app: "1672857995445286987"
+        kapp.k14s.io/app: "1679864904293570532"
         kapp.k14s.io/association: v1.cfc853b7b4add10a8d0d86939613c50b
         services.conventions.carto.run/postgres: workload
         tanzu.app.live.view: "true"
@@ -59,7 +60,7 @@ spec:
           value: postgres
         - name: JAVA_TOOL_OPTIONS
           value: -Dmanagement.endpoint.health.probes.add-additional-paths="true" -Dmanagement.health.probes.enabled="true" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: registry.gcp.ellin.net/tap/sc/spring-petclinic-spring-petclinic@sha256:1b76e7fe984a83bc85f648095d682bad98e50013c13db0861203400b2f767392
+        image: registry.gcp.ellin.net/tap/supply-chain/spring-petclinic-spring-petclinic@sha256:98e9e814a619b3dcf42672868a255bfe85e24a855b10a757234636975cc53f3d
         livenessProbe:
           httpGet:
             path: /livez
