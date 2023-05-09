@@ -60,7 +60,7 @@ spec:
           value: postgres
         - name: JAVA_TOOL_OPTIONS
           value: -Dmanagement.endpoint.health.probes.add-additional-paths="true" -Dmanagement.health.probes.enabled="true" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: registry.gcp.ellin.net/tap/supply-chain/spring-petclinic-spring-petclinic@sha256:f9761e0eb0b0b9b78ce6d79db13aa719a3f6d28b5685df908161c7a59eb54d01
+        image: registry.gcp.ellin.net/tap/supply-chain/spring-petclinic-spring-petclinic@sha256:2791349a9c3a0c1b0235dadc4d0e98a5ede581316958614842a2bae073e52886
         livenessProbe:
           httpGet:
             path: /livez
