@@ -19,7 +19,7 @@ spec:
     metadata:
       annotations:
         autoscaling.knative.dev/minScale: "1"
-        boot.spring.io/version: 3.1.0
+        boot.spring.io/version: 3.1.1
         conventions.carto.run/applied-conventions: |-
           appliveview-sample/app-live-view-appflavour-check
           spring-boot-convention/auto-configure-actuators-check
@@ -60,7 +60,7 @@ spec:
           value: postgres
         - name: JAVA_TOOL_OPTIONS
           value: -Dmanagement.endpoint.health.probes.add-additional-paths="true" -Dmanagement.health.probes.enabled="true" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: registry.gcp.ellin.net/tap/supply-chain/spring-petclinic-spring-petclinic@sha256:a5f971db560d4e9b95f2dfdf0ad33c4c45769b32709ea67c36a36c09aa3a9c09
+        image: registry.gcp.ellin.net/tap/supply-chain/spring-petclinic-spring-petclinic@sha256:72c0fed955a5bb60f5fc4024a7d2f817b0fb1aff801aeca3b285d9e0fc6dfdba
         livenessProbe:
           httpGet:
             path: /livez
