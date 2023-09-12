@@ -10,8 +10,6 @@ metadata:
     app.kubernetes.io/part-of: spring-petclinic
     apps.tanzu.vmware.com/has-tests: "true"
     apps.tanzu.vmware.com/workload-type: web
-    kapp.k14s.io/app: "1680803861227691168"
-    kapp.k14s.io/association: v1.cfc853b7b4add10a8d0d86939613c50b
     app.kubernetes.io/component: run
     carto.run/workload-name: spring-petclinic
 spec:
@@ -33,9 +31,8 @@ spec:
           spring-boot-convention/app-live-view-appflavours-boot
           spring-boot-convention/service-intent-postgres
         developer.conventions/target-containers: workload
-        kapp.k14s.io/identity: v1;spring-petclinic/carto.run/Workload/spring-petclinic;carto.run/v1alpha1
-        kapp.k14s.io/original: '{"apiVersion":"carto.run/v1alpha1","kind":"Workload","metadata":{"labels":{"app.kubernetes.io/part-of":"spring-petclinic","apps.tanzu.vmware.com/has-tests":"true","apps.tanzu.vmware.com/workload-type":"web","kapp.k14s.io/app":"1680803861227691168","kapp.k14s.io/association":"v1.cfc853b7b4add10a8d0d86939613c50b"},"name":"spring-petclinic","namespace":"spring-petclinic"},"spec":{"build":{"env":[{"name":"BP_GRADLE_BUILD_FILE","value":"skip"},{"name":"BP_JVM_VERSION","value":"17"}]},"env":[{"name":"SPRING_PROFILES_ACTIVE","value":"postgres"}],"params":[{"name":"annotations","value":{"autoscaling.knative.dev/minScale":"1"}},{"name":"gitops_repository_name","value":"trp-gitops-spring-petclinic"},{"name":"scanning_source_policy","value":"lax-scan-policy"},{"name":"scanning_image_policy","value":"lax-scan-policy"}],"serviceClaims":[{"name":"postgres-db","ref":{"apiVersion":"services.apps.tanzu.vmware.com/v1alpha1","kind":"ResourceClaim","name":"petclinic-db"}}],"source":{"git":{"ref":{"branch":"main"},"url":"https://github.com/spring-projects/spring-petclinic"}}}}'
-        kapp.k14s.io/original-diff-md5: c6e94dc94aed3401b5d0f26ed6c0bff3
+        kubectl.kubernetes.io/last-applied-configuration: |
+          {"apiVersion":"carto.run/v1alpha1","kind":"Workload","metadata":{"annotations":{},"labels":{"app.kubernetes.io/part-of":"spring-petclinic","apps.tanzu.vmware.com/has-tests":"true","apps.tanzu.vmware.com/workload-type":"web"},"name":"spring-petclinic","namespace":"spring-petclinic"},"spec":{"build":{"env":[{"name":"BP_GRADLE_BUILD_FILE","value":"skip"},{"name":"BP_JVM_VERSION","value":"17"}]},"env":[{"name":"SPRING_PROFILES_ACTIVE","value":"postgres"}],"params":[{"name":"annotations","value":{"autoscaling.knative.dev/minScale":"1"}},{"name":"gitops_repository_name","value":"trp-gitops-spring-petclinic"},{"name":"scanning_source_policy","value":"lax-scan-policy"},{"name":"scanning_image_policy","value":"lax-scan-policy"}],"serviceClaims":[{"name":"postgres-db","ref":{"apiVersion":"services.apps.tanzu.vmware.com/v1alpha1","kind":"ResourceClaim","name":"petclinic-db"}}],"source":{"git":{"ref":{"branch":"main"},"url":"https://github.com/spring-projects/spring-petclinic"}}}}
         services.conventions.carto.run/postgres: postgresql/42.6.0
       labels:
         app.kubernetes.io/component: run
@@ -45,8 +42,6 @@ spec:
         apps.tanzu.vmware.com/workload-type: web
         carto.run/workload-name: spring-petclinic
         conventions.carto.run/framework: spring-boot
-        kapp.k14s.io/app: "1680803861227691168"
-        kapp.k14s.io/association: v1.cfc853b7b4add10a8d0d86939613c50b
         services.conventions.carto.run/postgres: workload
         tanzu.app.live.view: "true"
         tanzu.app.live.view.application.actuator.path: actuator
@@ -60,7 +55,7 @@ spec:
           value: postgres
         - name: JAVA_TOOL_OPTIONS
           value: -Dmanagement.endpoint.health.probes.add-additional-paths="true" -Dmanagement.health.probes.enabled="true" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: registry.gcp.ellin.net/tap/supply-chain/spring-petclinic-spring-petclinic@sha256:9ae92a22499888d8f471a1199d446d38faea2c8a0dcf84beacbcf588406e4c78
+        image: registry.gcp.ellin.net/tap/workloads/spring-petclinic-spring-petclinic@sha256:82d0375753f7ff2f1cca0567cae734a8b26d768ca12d8a64a00d715049f5e433
         livenessProbe:
           httpGet:
             path: /livez
