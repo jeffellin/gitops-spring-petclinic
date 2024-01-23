@@ -53,7 +53,7 @@ spec:
       - env:
         - name: JAVA_TOOL_OPTIONS
           value: -Dmanagement.endpoint.health.probes.add-additional-paths="true" -Dmanagement.health.probes.enabled="true" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: registry.gcp.ellin.net/tap/supply-chain/spring-petclinic-spring-petclinic@sha256:5c9bdd8352c7b3f5b5224e08f23d71c78c3668a359d913492fca0ee61d00961a
+        image: registry.gcp.ellin.net/tap/supply-chain/spring-petclinic-spring-petclinic@sha256:38e15b1af10ff9a39d596539a0e3c6332c0dbeb3c950b84b8166bc2783af4488
         livenessProbe:
           httpGet:
             path: /livez
